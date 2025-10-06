@@ -3,7 +3,32 @@
 }
 
 .footer {
+  height: 60px;
+  position: fixed;
+  bottom: 10px;
   width: 100%;
-  height: 200px;
-  border: 1px solid green;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background-color: #2F2F2F;
+  }
+
+  &__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 8px 16px;
+    width: 100%;
+    border-radius: 25%;
+
+    &-active {
+      background: #F75C19;
+      color: #ffffff;
+    }
+  }
 }
