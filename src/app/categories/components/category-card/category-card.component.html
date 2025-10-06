@@ -1,0 +1,15 @@
+<div
+  class="category-card"
+  [class.category-card__top]="iconPosition === 'top'"
+  [class.category-card__left]="iconPosition === 'left'"
+  [class.category-card__bottom]="iconPosition === 'bottom'"
+>
+  <h3 class="category-card__title">
+    {{ category.type }}
+  </h3>
+  <img
+    class="category-card__image"
+    [alt]="category.type"
+    src="pipe_icon_5.png"
+  />
+</div>
