@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { IFilter } from './interfaces/filter.interface';
 
+/**
+ * Базовый класс для работы с API. Использовать в качестве расширения для сущностей.
+ * Реализует для конкретного типа и эндпоинта набор CRUD операций
+ */
 export class BaseAPI<T extends { id: string }> {
   private readonly endpoint: string;
   private readonly http = inject(HttpClient);
