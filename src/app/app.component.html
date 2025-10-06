@@ -1,5 +1,17 @@
 <tui-root>
   <app-main-layout>
-    content
+    <div style="display: flex; flex-direction: column; gap: 20px">
+
+    @for (category of categories; track category.id) {
+        <app-category-card
+          [category]="category"
+        />
+    }
+    </div>
+
   </app-main-layout>
+
+  <tui-icon
+    icon="@tui.heart"
+  />
 </tui-root>
