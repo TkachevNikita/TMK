@@ -8,6 +8,8 @@ import { Product } from '../../../data-access/products/models/product.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductCardComponent {
-  @Input()
+  @Input({
+    required: true,
+  })
   public product!: Product;
 }

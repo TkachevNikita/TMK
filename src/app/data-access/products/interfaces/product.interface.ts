@@ -11,6 +11,7 @@ export interface IProduct {
   manufacturer: string;
   steelGrade: string;
   diameter: number;
+  gost: string;
   profileSize2: number;
   pipeWallThickness: number;
   status: string;

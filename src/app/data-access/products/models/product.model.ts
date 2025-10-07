@@ -12,6 +12,7 @@ export class Product {
   public readonly manufacturer: string;
   public readonly steelGrade: string;
   public readonly diameter: number;
+  public readonly gost: string;
   public readonly profileSize2: number;
   public readonly pipeWallThickness: number;
   public readonly status: ExistingStatus;
@@ -31,6 +32,7 @@ export class Product {
     this.pipeWallThickness = product.pipeWallThickness;
     this.status = this.getStatus(product.status);
     this.koef = product.koef;
+    this.gost = product.gost;
   }
 
   // todo дописать согласно контрактам
