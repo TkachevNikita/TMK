@@ -1,13 +1,5 @@
 <tui-root>
   <app-main-layout>
-    <div style="display: flex; flex-direction: column; gap: 20px">
-
-    @for (category of categories; track category.id) {
-        <app-category-card
-          [category]="category"
-        />
-    }
-    </div>
-
+    <router-outlet/>
   </app-main-layout>
 </tui-root>

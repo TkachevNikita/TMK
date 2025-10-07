@@ -1,34 +1,42 @@
 <footer class="footer">
   <div class="footer__container">
-    <div class="footer__action">
+    <a
+      class="footer__action"
+      routerLink="/tmk"
+      routerLinkActive="footer__action-active"
+    >
       <tui-icon
         icon="@tui.boxes"
         [style.color]="'#E0E0E0'"
         [style.font-size.px]="32"
       />
-      <span class="footer__action-text">
-        ТМК
-      </span>
-    </div>
-    <div class="footer__action footer__action-active">
+      <span class="footer__action-text">ТМК</span>
+    </a>
+
+    <a
+      class="footer__action"
+      routerLink="/catalog"
+      routerLinkActive="footer__action-active"
+    >
       <tui-icon
-        icon="@tui.boxes"
+        icon="@tui.layout-dashboard"
         [style.color]="'#E0E0E0'"
         [style.font-size.px]="32"
       />
-      <span class="footer__action-text">
-        ТМК
-      </span>
-    </div>
-    <div class="footer__action">
+      <span class="footer__action-text">Каталог</span>
+    </a>
+
+    <a
+      class="footer__action"
+      routerLink="/cart"
+      routerLinkActive="footer__action-active"
+    >
       <tui-icon
-        icon="@tui.boxes"
+        icon="@tui.arrow-left-right"
         [style.color]="'#E0E0E0'"
         [style.font-size.px]="32"
       />
-      <span class="footer__action-text">
-        ТМК
-      </span>
-    </div>
+      <span class="footer__action-text">Корзина</span>
+    </a>
   </div>
 </footer>

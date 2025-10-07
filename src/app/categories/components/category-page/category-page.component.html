@@ -1,0 +1,7 @@
+<div class="category-page__list">
+  @for (category of categories$ | async; track category.id) {
+    <app-category-card
+      [category]="category"
+    />
+  }
+</div>

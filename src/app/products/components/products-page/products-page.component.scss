@@ -1,0 +1,25 @@
+.products-page {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__search {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    &-input {
+      width: 100%;
+    }
+
+    &-action {
+      color: #ffffff;
+      border-radius: 100%;
+      border: 1px solid #4C4E51;
+    }
+  }
+}
