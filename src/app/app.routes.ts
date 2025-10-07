@@ -16,6 +16,11 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'quiz',
+    loadComponent: () =>
+      import('./quiz/components/quiz-page/quiz-page.component').then((c) => c.QuizPageComponent),
+  },
+  {
     path: '**',
     redirectTo: 'catalog',
   },

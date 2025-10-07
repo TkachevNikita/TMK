@@ -14,7 +14,4 @@ export class CategoryCardComponent {
     required: true,
   })
   public category!: Category;
-
-  @Input()
-  public iconPosition: 'top' | 'right' | 'left' | 'bottom' = 'right';
 }

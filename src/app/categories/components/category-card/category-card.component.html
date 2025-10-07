@@ -1,8 +1,5 @@
 <div
   class="category-card"
-  [class.category-card__top]="iconPosition === 'top'"
-  [class.category-card__left]="iconPosition === 'left'"
-  [class.category-card__bottom]="iconPosition === 'bottom'"
   [routerLink]="['/catalog', category.id]"
 >
   <h3 class="category-card__title">
