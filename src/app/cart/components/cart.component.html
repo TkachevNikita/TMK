@@ -55,7 +55,7 @@
   }
   <div class="cart__footer">
     @if (items!.length > 0) {
-      <app-button>
+      <app-button (click)="getOrder()">
         Оформить
       </app-button>
     } @else {
