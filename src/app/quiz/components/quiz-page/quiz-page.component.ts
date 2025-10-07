@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Answer, Question, QUIZ_DATA } from '../../../data-access/consts/quiz';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { TuiIcon } from '@taiga-ui/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -10,6 +11,8 @@ import { TuiIcon } from '@taiga-ui/core';
   imports: [ButtonComponent, TuiIcon],
 })
 export class QuizPageComponent implements OnInit {
+  private readonly router = inject(Router);
+
   public questions: Question[] = QUIZ_DATA;
   public currentQuestionIndex: number = 0;
   public selectedAnswers: { [key: number]: Answer } = {};
@@ -52,9 +55,7 @@ export class QuizPageComponent implements OnInit {
   }
 
   public restartQuiz(): void {
-    this.currentQuestionIndex = 0;
-    this.selectedAnswers = {};
-    this.quizCompleted = false;
+    this.router.navigate(['/catalog']);
   }
 
   public hasSelectedAnswer(): boolean {
