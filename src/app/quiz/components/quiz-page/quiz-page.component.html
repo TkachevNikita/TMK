@@ -1,0 +1,61 @@
+@if (!quizCompleted) {
+  <div class="quiz">
+    <div class="quiz__progress">
+      <div class="quiz__progress-bar">
+        <div class="quiz__progress-fill" [style.width.%]="progress"></div>
+      </div>
+      <div class="quiz__progress-text">
+        Вопрос {{ currentQuestionIndex + 1 }} из {{ questions.length }}
+      </div>
+    </div>
+
+    <div class="quiz__item">
+      <h2 class="quiz__title">
+        {{ currentQuestion.text }}
+      </h2>
+
+      <div class="quiz__answer-list">
+        @for (answer of currentQuestion.answers; track answer) {
+          <div
+            class="quiz__answer-item"
+            [class.quiz__answer-item--selected]="isAnswerSelected(answer)"
+            (click)="selectAnswer(answer)"
+          >
+            {{ answer.text }}
+          </div>
+
+        }
+      </div>
+
+      <div class="quiz__navigation">
+        <app-button
+          style="width: 100%"
+          [disabled]="hasSelectedAnswer()"
+          (click)="nextQuestion()"
+        >
+          {{ currentQuestionIndex === questions.length - 1 ? 'Завершить' : 'Далее' }}
+        </app-button>
+      </div>
+    </div>
+  </div>
+}
+
+@if (quizCompleted) {
+  <div class="quiz-completed">
+    <div class="quiz-completed__content">
+      <tui-icon
+        icon="@tui.square-chart-gantt"
+        [style.font-size.px]="72"
+        [style.color]="'#fff'"
+      />
+      <h2 class="quiz-completed__title">Подобрали товары для ваших задач</h2>
+      <p class="quiz-completed__text">
+        Перейдите в каталог для выбора.
+      </p>
+
+      <app-button style="display: block; width: fit-content" (click)="restartQuiz()">
+        Перейти в каталог
+      </app-button>
+    </div>
+  </div>
+}

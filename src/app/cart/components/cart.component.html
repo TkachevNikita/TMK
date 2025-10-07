@@ -17,7 +17,7 @@
   } @else {
     <div class="cart__list">
       @for (item of items; track item.product.id) {
-        <app-product-card [product]="item.product" direction="row"/>
+        <app-product-card [editMode]="true" [product]="item.product" direction="row"/>
       }
     </div>
 

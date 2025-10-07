@@ -1,7 +1,21 @@
-<div class="category-page__list">
-  @for (category of categories$ | async; track category.id) {
-    <app-category-card
-      [category]="category"
-    />
-  }
+
+<div class="category-page">
+  <div class="category-page__banner">
+    <span class="category-page__banner-title">
+      Умный подбор
+    </span>
+    <span class="category-page__banner-text">
+      Подберем продукцию под ваши задачи
+    </span>
+    <button (click)="navigateToQuiz()" class="category-page__banner-action">
+      Пройти консультацию
+    </button>
+  </div>
+  <div class="category-page__list">
+    @for (category of categories$ | async; track category.id) {
+      <app-category-card
+        [category]="category"
+      />
+    }
+  </div>
 </div>

@@ -5,9 +5,25 @@
     alt="product
 " >
   <div class="product-card__desc">
-    <span class="product-card__title">
-      {{ product.name }}
-    </span>
+    <div class="product-card__desc-head">
+      <span class="product-card__title">
+        {{ product.name }}
+      </span>
+      @if (editMode) {
+        <div class="product-card__delete">
+          <button
+            appearance="secondary-destructive"
+            iconStart="@tui.trash"
+            size="s"
+            tuiIconButton
+            type="button"
+            (click)="removeItem()"
+          >
+            remove
+          </button>
+        </div>
+      }
+    </div>
     <div class="product-card__price">
       <span class="product-card__price-value">
         355 028,40 ₽
