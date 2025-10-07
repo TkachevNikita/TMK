@@ -16,3 +16,7 @@ tui-dialog .t-content {
   background: #1E1E1E !important;
   color: #ffffff;
 }
+
+.t-close::before {
+  color: #FFFFFF !important;
+}
