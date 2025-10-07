@@ -12,4 +12,7 @@ export class ProductCardComponent {
     required: true,
   })
   public product!: Product;
+
+  @Input()
+  public direction: 'column' | 'row' = 'column';
 }

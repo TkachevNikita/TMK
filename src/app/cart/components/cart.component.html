@@ -1,0 +1,47 @@
+@let products = products$ | async;
+
+<div class="cart">
+  <div class="cart__list">
+    @for (product of products; track product.id) {
+      <app-product-card [product]="product" direction="row"/>
+    }
+  </div>
+
+  <div class="cart__overview">
+    <span class="cart__overview-title">
+      Ваш заказ
+    </span>
+    <div class="cart__overview-list">
+      <div class="cart__overview-info">
+        <span class="cart__overview-info-title">
+          Товаров {{ products?.length }}
+        </span>
+        <span class="cart__overview-info-value">
+          343 ₽
+        </span>
+      </div>
+      <div class="cart__overview-info">
+        <span class="cart__overview-info-title">
+          Скидка
+        </span>
+        <span class="cart__overview-info-value">
+          -343 ₽
+        </span>
+      </div>
+      <div class="cart__overview-info">
+        <span class="cart__overview-info-title">
+          Цена со скидкой
+        </span>
+        <span class="cart__overview-info-value">
+          0 ₽
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart__footer">
+    <app-button>
+      Оформить
+    </app-button>
+  </div>
+</div>

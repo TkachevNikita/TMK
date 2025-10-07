@@ -1,9 +1,12 @@
+@let cartOpen = cartService.isOpen$ | async;
+@let currentRoute = currentRoute$ | async;
+
 <footer class="footer">
   <div class="footer__container">
     <a
       class="footer__action"
       routerLink="/tmk"
-      routerLinkActive="footer__action-active"
+      [class.footer__action-active]="currentRoute!.includes( 'tmk') && !cartOpen"
     >
       <tui-icon
         icon="@tui.boxes"
@@ -16,7 +19,7 @@
     <a
       class="footer__action"
       routerLink="/catalog"
-      routerLinkActive="footer__action-active"
+      [class.footer__action-active]="currentRoute!.includes('catalog') && !cartOpen"
     >
       <tui-icon
         icon="@tui.layout-dashboard"
@@ -27,9 +30,9 @@
     </a>
 
     <a
+      (click)="openCart()"
       class="footer__action"
-      routerLink="/cart"
-      routerLinkActive="footer__action-active"
+      [class.footer__action-active]="cartOpen"
     >
       <tui-icon
         icon="@tui.shopping-cart"
