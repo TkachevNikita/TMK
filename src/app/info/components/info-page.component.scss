@@ -1,0 +1,64 @@
+.info-page {
+  width: 100%;
+}
+
+.info-page__text {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.info-page__text-dop p {
+  color: #8c8a8a;
+}
+
+.info-page h2 {
+  color: #F8F8F8;
+  font-weight: 600;
+
+  margin-bottom: 15px;
+}
+
+.info-page p {
+  color: #F8F8F8;
+  font-weight: 300;
+  text-align: justify;
+
+}
+
+.career {
+  background-color: #292929;
+  border-radius: 10px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.career__buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px
+}
+
+.career__anketa {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F75c19;
+  font-size: 14px;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+
+.career__vacations {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F75c19;
+  font-size: 14px;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+
+
+

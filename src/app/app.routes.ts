@@ -16,6 +16,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'tmk',
+    loadComponent: () =>
+      import('./info/components/info-page.component').then(
+        (c) => c.InfoPageComponent,
+      ),
+  },
+  {
     path: '**',
     redirectTo: 'catalog',
   },
