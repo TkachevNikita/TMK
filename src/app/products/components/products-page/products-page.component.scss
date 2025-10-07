@@ -1,8 +1,7 @@
 .products-page {
   &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(163px, 1fr));
     gap: 10px;
   }
 

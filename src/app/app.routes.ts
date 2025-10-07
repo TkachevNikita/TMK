@@ -15,4 +15,8 @@ export const routes: Routes = [
         (c) => c.ProductsPageComponent,
       ),
   },
+  {
+    path: '**',
+    redirectTo: 'catalog',
+  },
 ];
