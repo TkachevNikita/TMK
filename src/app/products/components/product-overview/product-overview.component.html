@@ -86,7 +86,15 @@
       </div>
     </div>
   </div>
-  <app-button>
-    В корзину
-  </app-button>
+  <div class="product-overview__footer">
+    <app-button
+      [style.width.%]="quantity > 0 ? 70 : 100"
+      (click)="quantity > 0 ? openCart() : pushToCart()"
+    >
+      В корзину
+    </app-button>
+    @if (quantity > 0) {
+      <app-quantity style="width: 30%" [formControl]="quantityControl" />
+    }
+  </div>
 </div>

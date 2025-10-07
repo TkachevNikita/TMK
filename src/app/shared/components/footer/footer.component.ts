@@ -4,13 +4,26 @@ import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { CartService } from '../../../cart/services/cart.service';
 import { AsyncPipe } from '@angular/common';
 import { filter, map, startWith } from 'rxjs';
+import {
+  TuiAvatar,
+  TuiBadgedContent,
+  TuiBadgedContentComponent,
+  TuiBadgeNotification,
+} from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [TuiIcon, RouterLink, AsyncPipe],
+  imports: [
+    TuiIcon,
+    RouterLink,
+    AsyncPipe,
+    TuiBadgedContentComponent,
+    TuiBadgeNotification,
+    TuiBadgedContent,
+  ],
 })
 export class FooterComponent {
   protected readonly router = inject(Router);

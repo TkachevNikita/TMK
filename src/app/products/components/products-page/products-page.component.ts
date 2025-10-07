@@ -21,7 +21,7 @@ export class ProductsPageComponent {
   private readonly productsStore = inject(ProductsStore);
   private readonly dialog = tuiDialog(ProductOverviewComponent, {
     dismissible: true,
-    label: 'Heading',
+    label: 'О товаре',
   });
 
   public products$ = this.productsStore.products$;

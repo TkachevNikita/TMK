@@ -74,4 +74,10 @@
       color: #B0B0B0;
     }
   }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 }

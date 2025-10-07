@@ -6,6 +6,7 @@ import { Product } from '../../../data-access/products/models/product.model';
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [],
 })
 export class ProductCardComponent {
   @Input({

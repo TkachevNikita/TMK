@@ -1,0 +1,45 @@
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2c2c2c;
+  color: white;
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 16px;
+  width: 100%;
+
+  button {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 24px;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .value-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+  }
+
+  .value {
+    font-weight: 600;
+  }
+
+  .weight {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+}

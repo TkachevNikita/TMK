@@ -1,47 +1,67 @@
-@let products = products$ | async;
+@let items = items$ | async;
 
 <div class="cart">
-  <div class="cart__list">
-    @for (product of products; track product.id) {
-      <app-product-card [product]="product" direction="row"/>
-    }
-  </div>
+  @if (items?.length === 0) {
+    <div class="cart__empty">
+      <tui-icon
+        [style.font-size.px]="72"
+        icon="@tui.shopping-cart"
+      />
+      <span class="cart__empty-title">
+        В корзине пусто
+      </span>
+      <span class="cart__empty-text">
+        Перейдите в каталог для выбора
+      </span>
+    </div>
+  } @else {
+    <div class="cart__list">
+      @for (item of items; track item.product.id) {
+        <app-product-card [product]="item.product" direction="row"/>
+      }
+    </div>
 
-  <div class="cart__overview">
+    <div class="cart__overview">
     <span class="cart__overview-title">
       Ваш заказ
     </span>
-    <div class="cart__overview-list">
-      <div class="cart__overview-info">
+      <div class="cart__overview-list">
+        <div class="cart__overview-info">
         <span class="cart__overview-info-title">
-          Товаров {{ products?.length }}
+          Товаров {{ items?.length }}
         </span>
-        <span class="cart__overview-info-value">
+          <span class="cart__overview-info-value">
           343 ₽
         </span>
-      </div>
-      <div class="cart__overview-info">
+        </div>
+        <div class="cart__overview-info">
         <span class="cart__overview-info-title">
           Скидка
         </span>
-        <span class="cart__overview-info-value">
+          <span class="cart__overview-info-value">
           -343 ₽
         </span>
-      </div>
-      <div class="cart__overview-info">
+        </div>
+        <div class="cart__overview-info">
         <span class="cart__overview-info-title">
           Цена со скидкой
         </span>
-        <span class="cart__overview-info-value">
+          <span class="cart__overview-info-value">
           0 ₽
         </span>
+        </div>
       </div>
     </div>
-  </div>
-
+  }
   <div class="cart__footer">
-    <app-button>
-      Оформить
-    </app-button>
+    @if (items!.length > 0) {
+      <app-button>
+        Оформить
+      </app-button>
+    } @else {
+      <app-button (click)="navigateToCategories()">
+        Каталог
+      </app-button>
+    }
   </div>
 </div>
