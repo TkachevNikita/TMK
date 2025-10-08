@@ -5,6 +5,12 @@
     gap: 10px;
   }
 
+  @media (max-width: 430px) {
+    &__back {
+      width: 5%;
+    }
+  }
+
   &__search {
     display: flex;
     gap: 10px;
