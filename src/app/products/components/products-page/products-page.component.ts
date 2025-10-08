@@ -15,10 +15,11 @@ import { ProductsAPI } from '../../../data-access/products/products-api';
 import { AsyncPipe } from '@angular/common';
 import { ProductOverviewComponent } from '../product-overview/product-overview.component';
 import { Product } from '../../../data-access/products/models/product.model';
-import { debounceTime, merge, take } from 'rxjs';
+import { debounceTime, merge, Observable, take } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { Category } from '../../../data-access/categories/models/category.model';
 
 @Component({
   templateUrl: './products-page.component.html',
@@ -31,7 +32,6 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
     TuiButton,
     AsyncPipe,
     ReactiveFormsModule,
-    ButtonComponent,
   ],
   providers: [ProductsStore, ProductsAPI],
 })
@@ -62,9 +62,10 @@ export class ProductsPageComponent implements OnInit {
     });
 
     this.route.queryParams.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((params) => {
-      const hasAnyFilter = Object.values(params).some(
-        (v) => v !== undefined && v !== null && v !== '' && Number(v) !== 0,
-      );
+      const hasAnyFilter = Object.entries(params).some(([key, value]) => {
+        if (key === 'name') return false;
+        return value !== undefined && value !== null && value !== '' && Number(value) !== 0;
+      });
 
       if (hasAnyFilter) {
         this.filtersOpen.set(true);
@@ -72,7 +73,7 @@ export class ProductsPageComponent implements OnInit {
 
       this.filterForm.patchValue(
         {
-          diameter: params['diameter'],
+          diameter: Number(params['diameter']) ? params['diameter'] : '',
           steelGrade: params['steelGrade'] || '',
           gost: params['gost'] || '',
         },
@@ -85,7 +86,7 @@ export class ProductsPageComponent implements OnInit {
     });
 
     merge(this.nameFilter.valueChanges, this.filterForm.valueChanges)
-      .pipe(debounceTime(500), takeUntilDestroyed(this.destroyRef))
+      .pipe(debounceTime(250), takeUntilDestroyed(this.destroyRef))
       .subscribe(() => {
         this.applyFilters();
       });
@@ -113,5 +114,9 @@ export class ProductsPageComponent implements OnInit {
     });
 
     this.productsStore.reload(filters);
+  }
+
+  public back(): void {
+    this.router.navigate(['/categories']);
   }
 }

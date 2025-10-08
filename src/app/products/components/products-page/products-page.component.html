@@ -1,4 +1,16 @@
 <div class="products-page">
+  <div class="products-page__head">
+    <button
+      appearance="secondary-destructive"
+      iconStart="@tui.arrow-left"
+      size="xl"
+      tuiIconButton
+      type="button"
+      (click)="back()"
+    >
+      back
+    </button>
+  </div>
   <div class="products-page__search">
     <app-input
       [formControl]="nameFilter"
