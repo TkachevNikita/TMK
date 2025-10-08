@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ControlValueAccessor } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TuiIcon } from '@taiga-ui/core';
 
 @Component({
@@ -8,6 +8,13 @@ import { TuiIcon } from '@taiga-ui/core';
   styleUrl: './input.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [TuiIcon],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => InputComponent),
+      multi: true,
+    },
+  ],
 })
 export class InputComponent implements ControlValueAccessor {
   @Input() public iconStart?: string;

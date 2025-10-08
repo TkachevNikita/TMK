@@ -21,4 +21,14 @@
       border: 1px solid #4C4E51;
     }
   }
+
+  &__filters {
+    margin-bottom: 20px;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
 }

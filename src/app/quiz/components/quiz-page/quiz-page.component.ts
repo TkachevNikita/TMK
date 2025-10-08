@@ -55,7 +55,13 @@ export class QuizPageComponent implements OnInit {
   }
 
   public restartQuiz(): void {
-    this.router.navigate(['/catalog']);
+    this.router.navigate([`/catalog/a58d54b6-25ea-4818-afc9-1faa8c630d9a`], {
+      queryParams: {
+        diameter: '50',
+        gost: 'GOST 8732',
+        steelGrade: 'Ст5',
+      },
+    });
   }
 
   public hasSelectedAnswer(): boolean {
