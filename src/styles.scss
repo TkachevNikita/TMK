@@ -11,3 +11,12 @@ body, html, tui-root {
 .t-root-content {
   background: black;
 }
+
+tui-dialog .t-content {
+  background: #1E1E1E !important;
+  color: #ffffff;
+}
+
+.t-close::before {
+  color: #FFFFFF !important;
+}

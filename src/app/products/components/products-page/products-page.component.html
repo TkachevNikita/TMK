@@ -1,0 +1,59 @@
+<div class="products-page">
+  <div class="products-page__search">
+    <button
+      class="products-page__back"
+      appearance="secondary-destructive"
+      iconStart="@tui.arrow-left"
+      size="xl"
+      tuiIconButton
+      type="button"
+      (click)="back()"
+    >
+      back
+    </button>
+    <app-input
+      [formControl]="nameFilter"
+      class="products-page__search-input"
+      placeholder="Поиск"
+      iconStart="@tui.search"
+    />
+    <button
+      class="products-page__search-action"
+      appearance="secondary-destructive"
+      iconStart="@tui.settings-2"
+      size="l"
+      tuiIconButton
+      type="button"
+      (click)="toggleFilters()"
+    >
+      Settings
+    </button>
+  </div>
+  @if (filtersOpen()) {
+    <div class="products-page__filters">
+      <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+        <app-input
+          formControlName="diameter"
+          placeholder="Диаметр"
+          type="number"
+        ></app-input>
+
+        <app-input
+          formControlName="steelGrade"
+          placeholder="Марка стали"
+        ></app-input>
+
+        <app-input
+          formControlName="gost"
+          placeholder="GOST / НТД"
+        ></app-input>
+      </form>
+    </div>
+  }
+
+  <div class="products-page__list">
+    @for (product of products$ | async; track product) {
+      <app-product-card (click)="openProduct(product)" [product]="product"/>
+    }
+  </div>
+</div>

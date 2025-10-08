@@ -1,0 +1,36 @@
+<div class="product-card" [class.product-card__row]="direction === 'row'">
+  <img
+    class="product-card__image"
+    src="product.jpg"
+    alt="product
+" >
+  <div class="product-card__desc">
+    <div class="product-card__desc-head">
+      <span class="product-card__title">
+        {{ product.name }}
+      </span>
+      @if (editMode) {
+        <div class="product-card__delete">
+          <button
+            appearance="secondary-destructive"
+            iconStart="@tui.trash"
+            size="s"
+            tuiIconButton
+            type="button"
+            (click)="removeItem()"
+          >
+            remove
+          </button>
+        </div>
+      }
+    </div>
+    <div class="product-card__price">
+      <span class="product-card__price-value">
+        355 028,40 ₽
+      </span>
+      <div class="product-card__price-text">
+        Цена за тонну с ндс
+      </div>
+    </div>
+  </div>
+</div>

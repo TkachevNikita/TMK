@@ -1,0 +1,16 @@
+<div class="icon-input">
+  @if (iconStart) {
+    <tui-icon [icon]="iconStart"/>
+  }
+  <input
+    [value]="value"
+    (input)="onChange($any($event.target).value)"
+    (blur)="onTouched()"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    type="text"
+  />
+  @if (iconEnd) {
+    <tui-icon [icon]="iconEnd"/>
+  }
+</div>

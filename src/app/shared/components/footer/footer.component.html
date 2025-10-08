@@ -1,34 +1,53 @@
+@let cartOpen = cartService.isOpen$ | async;
+@let currentRoute = currentRoute$ | async;
+
 <footer class="footer">
   <div class="footer__container">
-    <div class="footer__action">
+    <a
+      class="footer__action"
+      routerLink="/tmk"
+      [class.footer__action-active]="currentRoute!.includes( 'tmk') && !cartOpen"
+    >
       <tui-icon
         icon="@tui.boxes"
         [style.color]="'#E0E0E0'"
         [style.font-size.px]="32"
       />
-      <span class="footer__action-text">
-        ТМК
-      </span>
-    </div>
-    <div class="footer__action footer__action-active">
+      <span class="footer__action-text">ТМК</span>
+    </a>
+
+    <a
+      class="footer__action"
+      routerLink="/catalog"
+      [class.footer__action-active]="currentRoute!.includes('catalog') && !cartOpen"
+    >
       <tui-icon
-        icon="@tui.boxes"
+        icon="@tui.layout-dashboard"
         [style.color]="'#E0E0E0'"
         [style.font-size.px]="32"
       />
-      <span class="footer__action-text">
-        ТМК
-      </span>
-    </div>
-    <div class="footer__action">
-      <tui-icon
-        icon="@tui.boxes"
-        [style.color]="'#E0E0E0'"
-        [style.font-size.px]="32"
-      />
-      <span class="footer__action-text">
-        ТМК
-      </span>
-    </div>
+      <span class="footer__action-text">Каталог</span>
+    </a>
+
+    <a
+      (click)="openCart()"
+      class="footer__action"
+      [class.footer__action-active]="cartOpen"
+    >
+      <tui-badged-content>
+        <tui-badge-notification
+          size="l"
+          tuiSlot="top"
+        >
+          {{ cartService.totalQuantity | async }}
+        </tui-badge-notification>
+        <tui-icon
+          icon="@tui.shopping-cart"
+          [style.color]="'#E0E0E0'"
+          [style.font-size.px]="32"
+        />
+      </tui-badged-content>
+      <span class="footer__action-text">Корзина</span>
+    </a>
   </div>
 </footer>

@@ -1,0 +1,75 @@
+@let items = cartService.items$ | async;
+
+<div class='order'>
+  <div class='box'>
+    <h2 class='title'>Данные получателя</h2>
+    <div class='inputs'>
+      <div class='input-container'>
+        <app-input
+          class="order-input"
+          placeholder="ФИО"
+          style='border-radius: 2px;'
+        />
+      </div>
+      <div class='input-container'>
+        <app-input
+          class="order-input"
+          placeholder="ИНН"
+          style='border-radius: 2px;'
+        />
+      </div>
+      <div class='input-container'>
+        <app-input
+          class="order-input"
+          placeholder="Название организации"
+          style='border-radius: 2px;'
+        />
+      </div>
+      <div class='input-container'>
+        <app-input
+          class="order-input"
+          placeholder="Номер телефона"
+          style='border-radius: 2px;'
+        />
+      </div>
+      <div class='input-container'>
+        <app-input
+          class="order-input"
+          placeholder="Email"
+          style='border-radius: 2px;'
+        />
+      </div>
+    </div>
+  </div>
+  <div class='box'>
+    <h2 class='title'>Ваш заказ</h2>
+    <div class='info-order'>
+      <div class='info-order__row'>
+        <p>2 товара</p>
+        <span>21 131,09 ₽</span>
+      </div>
+      <div class='info-order__row'>
+        <p>Скидка</p>
+        <span>-1 840 ₽</span>
+      </div>
+      <div class='info-order__row'>
+        <p>Итого</p>
+        <span>19 291,09 ₽</span>
+      </div>
+    </div>
+    <div class='order-products'>
+      @for (item of items; track item.product.id) {
+        <app-order-product [item]="item"/>
+      }
+    </div>
+  </div>
+  <div class='design'>
+    <div class='sale'>
+      <p>Цена со скидкой</p>
+      <span>19 291,09 ₽</span>
+    </div>
+    <app-button (click)="createOrder()" [disabled]="items?.length === 0">
+      Оформить заявку
+    </app-button>
+  </div>
+</div>

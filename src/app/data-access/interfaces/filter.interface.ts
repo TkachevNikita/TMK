@@ -1,2 +1,7 @@
-// todo релизовать по контракту с бэка
-export interface IFilter {}
+export interface IFilter {
+  productionType?: 'cold' | 'hot' | 'welded';
+  diameter?: number;
+  steelGrade?: string;
+  gost?: string;
+  name?: string;
+}

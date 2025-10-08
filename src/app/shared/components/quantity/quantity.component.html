@@ -1,0 +1,12 @@
+<div class="quantity-control">
+  <button type="button" (click)="decrease()">−</button>
+
+  <div class="value-container">
+    <div class="value">{{ value }}</div>
+    @if (totalWeight) {
+      <div class="weight">{{ totalWeight }}</div>
+    }
+  </div>
+
+  <button type="button" (click)="increase()">+</button>
+</div>

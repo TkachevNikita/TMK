@@ -1,0 +1,100 @@
+<div class="product-overview">
+  <div class="product-overview__block">
+    <img
+      src="product.jpg"
+      [alt]="product.name"
+      class="product-overview__image"
+    >
+    <h3 class="product-overview__title">
+      {{ product.name }}
+    </h3>
+    <div class="product-overview__list">
+      <div class="product-overview__list-line">
+        <div class="product-overview__group">
+          <span class="product-overview__group-title">
+            НТД
+          </span>
+          <span class="product-overview__group-value">
+            {{ product.gost }}
+          </span>
+        </div>
+        <div class="product-overview__group">
+          <span class="product-overview__group-title">
+            Размер
+          </span>
+          <span class="product-overview__group-value">
+            {{ product.profileSize2 }}
+          </span>
+        </div>
+      </div>
+      <div class="product-overview__list-line">
+        <div class="product-overview__group">
+        <span class="product-overview__group-title">
+          Марка стали
+        </span>
+          <span class="product-overview__group-value">
+          {{ product.steelGrade }}
+        </span>
+        </div>
+        <div class="product-overview__group">
+        <span class="product-overview__group-title">
+          Толщина
+        </span>
+          <span class="product-overview__group-value">
+          {{ product.diameter }}
+        </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="product-overview__block">
+    <span class="product-overview__block-title">
+      Описание
+    </span>
+    <div class="product-overview__desc">
+      <div class="product-overview__desc-item">
+        <span class="product-overview__desc-title">
+          Наличие на складе
+        </span>
+        <span class="product-overview__desc-value">
+          Мерность длины
+        </span>
+      </div>
+      <div class="product-overview__desc-item">
+        <span class="product-overview__desc-title">
+          Мерность длины
+        </span>
+        <span class="product-overview__desc-value">
+          Мерность длины
+        </span>
+      </div>
+      <div class="product-overview__desc-item">
+        <span class="product-overview__desc-title">
+          Тип концов
+        </span>
+        <span class="product-overview__desc-value">
+          Мерность длины
+        </span>
+      </div>
+      <div class="product-overview__desc-item">
+        <span class="product-overview__desc-title">
+          Признак термообработки
+        </span>
+        <span class="product-overview__desc-value">
+          Мерность длины
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="product-overview__footer">
+    <app-button
+      [style.width.%]="quantity > 0 ? 70 : 100"
+      (click)="quantity > 0 ? openCart() : pushToCart()"
+    >
+      В корзину
+    </app-button>
+    @if (quantity > 0) {
+      <app-quantity style="width: 30%" [formControl]="quantityControl" />
+    }
+  </div>
+</div>
