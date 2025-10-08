@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../../../data-access/products/models/product.model';
 import { TuiButton } from '@taiga-ui/core';
 
@@ -21,5 +21,10 @@ export class ProductCardComponent {
   @Input()
   public editMode = false;
 
-  public removeItem(): void {}
+  @Output()
+  public remove = new EventEmitter<void>();
+
+  public removeItem(): void {
+    this.remove.emit();
+  }
 }

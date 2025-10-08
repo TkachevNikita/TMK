@@ -36,4 +36,8 @@ export class CartComponent {
     this.context.completeWith();
     this.dialog().pipe(take(1)).subscribe();
   }
+
+  public removeItem(productId: string): void {
+    this.cartService.removeProduct(productId);
+  }
 }

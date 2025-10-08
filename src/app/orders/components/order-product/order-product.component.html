@@ -1,0 +1,13 @@
+<div class='order-product'>
+  <div class='order-product__img'>
+    <img src="product.jpg" alt='product'>
+  </div>
+  <div class="order-product__body">
+    <p>{{ item.product.name }}, D {{ item.product.profileSize2 }} м</p>
+    <app-quantity
+      (change)="updateQuantity($event)"
+      [(ngModel)]="item.quantity"
+      class="order-product__quantity"
+    />
+  </div>
+</div>

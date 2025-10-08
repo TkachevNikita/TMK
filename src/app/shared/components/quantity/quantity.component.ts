@@ -1,4 +1,11 @@
-import { Component, forwardRef, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  forwardRef,
+  Input,
+  ChangeDetectionStrategy,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -20,6 +27,9 @@ export class QuantityComponent implements ControlValueAccessor {
   @Input() public step = 1;
 
   @Input() public weightPerUnit?: number;
+
+  @Output()
+  public change = new EventEmitter<number>();
 
   public value = 1;
 
@@ -54,6 +64,7 @@ export class QuantityComponent implements ControlValueAccessor {
 
   private updateValue(value: number): void {
     this.value = value;
+    this.change.emit(value);
     this.onChange(value);
     this.onTouched();
   }

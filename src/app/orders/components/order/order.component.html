@@ -1,3 +1,5 @@
+@let items = cartService.items$ | async;
+
 <div class='order'>
   <div class='box'>
     <h2 class='title'>Данные получателя</h2>
@@ -56,18 +58,9 @@
       </div>
     </div>
     <div class='order-products'>
-      <div class='order-product'>
-        <div class='order-product__img'>
-          <img src="product.jpg" alt='product'>
-        </div>
-        <p>Нержавеющие электросварные прямошовные трубы, D 25м</p>
-      </div>
-      <div class='order-product'>
-        <div class='order-product__img'>
-          <img src="product.jpg" alt='product'>
-        </div>
-        <p>Нержавеющие электросварные прямошовные трубы, D 25м</p>
-      </div>
+      @for (item of items; track item.product.id) {
+        <app-order-product [item]="item"/>
+      }
     </div>
   </div>
   <div class='design'>
@@ -75,7 +68,7 @@
       <p>Цена со скидкой</p>
       <span>19 291,09 ₽</span>
     </div>
-    <app-button>
+    <app-button (click)="createOrder()" [disabled]="items?.length === 0">
       Оформить заявку
     </app-button>
   </div>

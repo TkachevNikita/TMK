@@ -17,7 +17,12 @@
   } @else {
     <div class="cart__list">
       @for (item of items; track item.product.id) {
-        <app-product-card [editMode]="true" [product]="item.product" direction="row"/>
+        <app-product-card
+          (remove)="removeItem(item.product.id)"
+          [editMode]="true"
+          [product]="item.product"
+          direction="row"
+        />
       }
     </div>
 
